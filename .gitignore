@@ -1,0 +1,9 @@
+.idea/
+test/
+dev/
+npm-debug.log
+node_modules/
+coverage/
+*.compiled.*
+server.log
+server.pid

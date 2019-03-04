@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+set -o nounset
+
+node_modules/.bin/watchify --debug terrain-editor/src/editor.tsx \
+    -p [ tsify ] \
+    -o dist/editor.js \
+    -v &
+
+node_modules/.bin/node-sass terrain-editor/css/editor.scss dist/editor.css \
+    --include-path=\"../terrain-editor/css/\" \
+    --source-comments \
+    --source-map-embed \
+    --watch \
+    --recursive

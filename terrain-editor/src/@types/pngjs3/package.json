@@ -1,0 +1,168 @@
+{
+  "_from": "pngjs3@4.0.0",
+  "_id": "pngjs3@4.0.0",
+  "_inBundle": false,
+  "_integrity": "sha512-IV0atJM6mAQki/EiHAbugh3JAqpLam1RqL4yUb/hW1WvNygTtMO6TAQUHj/x0NaOZLG24CKvUmSSZovhWfr6Cw==",
+  "_location": "/pngjs3",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "pngjs3@4.0.0",
+    "name": "pngjs3",
+    "escapedName": "pngjs3",
+    "rawSpec": "4.0.0",
+    "saveSpec": null,
+    "fetchSpec": "4.0.0"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/pngjs3/-/pngjs3-4.0.0.tgz",
+  "_shasum": "2ded04058c4afbb4054e70a0928230bddeda7e63",
+  "_spec": "pngjs3@4.0.0",
+  "_where": "/home/thomas/Code/Javascript/MXSimTerrain",
+  "bugs": {
+    "url": "https://github.com/gforge/pngjs3/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Max Gordon"
+    },
+    {
+      "name": "Alexandre Paré"
+    },
+    {
+      "name": "Gaurav Mali"
+    },
+    {
+      "name": "Gusts Kaksis"
+    },
+    {
+      "name": "Kuba Niegowski"
+    },
+    {
+      "name": "Luke Page"
+    },
+    {
+      "name": "Pietajan De Potter"
+    },
+    {
+      "name": "Steven Sojka"
+    },
+    {
+      "name": "liangzeng"
+    },
+    {
+      "name": "Michael Vogt"
+    },
+    {
+      "name": "Xin-Xin Wang"
+    },
+    {
+      "name": "toriningen"
+    },
+    {
+      "name": "Eugene Kulabuhov"
+    }
+  ],
+  "dependencies": {
+    "browserify-zlib": "^0.2.0"
+  },
+  "deprecated": false,
+  "description": "PNG encoder/decoder in pure JS, supporting any bit size & interlace, async & sync with full test suite.",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "babel-tape-runner": "^2.0.1",
+    "browserify": "^16.2.2",
+    "buffer-equal": "1.0.0",
+    "connect": "^3.6.6",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.2.0",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "flow-bin": "^0.77.0",
+    "flow-copy-source": "^2.0.2",
+    "istanbul": "^0.4.4",
+    "nodemon": "^1.18.3",
+    "nyc": "^12.0.2",
+    "phantomjs-prebuilt": "^2.1.16",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.63.5",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-browserify-transform": "^1.0.1",
+    "rollup-plugin-commonjs": "^9.1.4",
+    "rollup-plugin-filesize": "^4.0.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.2.1",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-terser": "^1.0.1",
+    "serve-static": "^1.13.2",
+    "tap-dot": "^2.0.0",
+    "tap-nyc": "^1.0.3",
+    "tape": "^4.9.1"
+  },
+  "directories": {
+    "lib": "dist",
+    "example": "examples",
+    "test": "test"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "homepage": "https://github.com/gforge/pngj3",
+  "keywords": [
+    "PNG",
+    "decoder",
+    "encoder",
+    "js-png",
+    "node-png",
+    "parser",
+    "png",
+    "png-js",
+    "png-parse",
+    "pngjs"
+  ],
+  "license": "MIT",
+  "main": "./dist/pngjs3.js",
+  "module": "./dist/pngjs3.es.js",
+  "name": "pngjs3",
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gforge/pngjs3.git"
+  },
+  "scripts": {
+    "build": "npm run compile && npm run build:flow",
+    "build:clean": "rimraf dist",
+    "build:flow": "flow-copy-source -v -i 'test/**' lib dist",
+    "compile": "NODE_ENV=production rollup -c && NODE_ENV=development rollup -c",
+    "coverage": "NODE_ENV=test nyc babel-tape-runner test/*-spec.js nolarge| tap-nyc",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "eslint lib",
+    "lint:fix": "eslint lib --fix",
+    "monitor": "nodemon --watch lib --delay 2.5s --exec \"npm run build\"",
+    "prepublish": "npm run build",
+    "test": "npm run test:clean && npm run lint && babel-tape-runner test/*-spec.js | tap-dot && babel-node test/run-compare",
+    "test:clean": "rimraf test/out/* && rimraf test/outsync/*",
+    "test:only": "npm run test:clean && babel-tape-runner test/*-spec.js",
+    "test:only:watch": "nodemon --exec 'npm run test:only' -e js,json",
+    "test:quickwatch": "nodemon --exec 'npm run test:only nolarge | tap-nyc' -e js,json",
+    "test:watch": "nodemon --exec 'npm run test' -e js,json"
+  },
+  "version": "4.0.0"
+}

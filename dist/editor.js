@@ -1,0 +1,1 @@
+console.error("TypeScript error: terrain-editor/src/components/terrain.tsx(79,32): Error TS2339: Property 'SubdivisionModifier' does not exist on type 'typeof import(\"node_modules/@types/three/index\")'.");
